@@ -41,7 +41,7 @@ services:
       - /home/aysen/websites/nginx-proxy/vhost.d:/etc/nginx/vhost.d
       - /home/aysen/websites/nginx-proxy/html:/usr/share/nginx/html
       - /home/aysen/websites/nginx-proxy/certs:/etc/nginx/certs:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       NGINX_DOCKER_GEN_CONTANER: "nginx-gen"
       NGINX_PROXY_CONTAINER: "nginx" 
