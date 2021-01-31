@@ -1,0 +1,12 @@
+name: Update code
+on:
+  push:
+    branches: main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Update
+        uses: ./scripts/update.sh
