@@ -4,9 +4,17 @@ on:
     branches: main
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
-      - name: Update
-        uses: ./scripts/update.sh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.IP }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /home/aysen/websites
+            ${{ secrets.SCRIPT }}
+            
